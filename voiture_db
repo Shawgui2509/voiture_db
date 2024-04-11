@@ -1,0 +1,70 @@
+create database voiture_db;
+
+use voiture_db;
+
+CREATE TABLE Information(
+    ID int auto_increment primary key,
+    nom varchar(255),
+    Email varchar(255),
+	mot_de_passe VARCHAR(255) NOT NULL
+);
+
+insert into Information(ID, nom, Email, mot_de_passe) 
+values('NOM', 'PRENOM', 'EMAIL', 'MOTDEPASSE');
+
+CREATE TABLE Marques (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_marque VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE Modeles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_modele VARCHAR(100) NOT NULL,
+    id_marque INT,
+    FOREIGN KEY (id_marque) REFERENCES Marques(id)
+);
+
+INSERT INTO Marques (nom_marque) VALUES 
+('Renault'),
+('Volkswagen'),
+('Peugeot'),
+('Honda'),
+('Ford'),
+('Audi'),
+('BMW');
+
+
+INSERT INTO Modeles (nom_modele, id_marque) VALUES 
+('Clio', 1),
+('Megane', 1),
+('Captur', 1);
+
+INSERT INTO Modeles (nom_modele, id_marque) VALUES 
+('Golf', 2),
+('Polo', 2),
+('Tiguan', 2);
+
+INSERT INTO Modeles (nom_modele, id_marque) VALUES 
+('208', 3),
+('308', 3),
+('3008', 3);
+
+INSERT INTO Modeles (nom_modele, id_marque) VALUES 
+('Civic', 4),
+('Accord', 4),
+('CR-V', 4);
+
+INSERT INTO Modeles (nom_modele, id_marque) VALUES 
+('Focus', 5),
+('Fiesta', 5),
+('Escape', 5);
+
+INSERT INTO Modeles (nom_modele, id_marque) VALUES 
+('A3', 6),
+('A4', 6),
+('Q5', 6);
+
+INSERT INTO Modeles (nom_modele, id_marque) VALUES 
+('Series 3', 7),
+('Series 5', 7),
+('X3', 7);
